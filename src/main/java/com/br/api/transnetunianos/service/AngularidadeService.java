@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.br.api.transnetunianos.ModelDTO.AngularidadeDTO;
+import com.br.api.transnetunianos.exceptions.ReturnErroMessageCostomization;
 import com.br.api.transnetunianos.model.Angularidade;
 import com.br.api.transnetunianos.repsitory.AgularidadeRepository;
 
@@ -21,6 +22,7 @@ public class AngularidadeService {
 	}
 	
 	public ResponseEntity<AngularidadeDTO> saveBody(AngularidadeDTO angularidadeDto) {
+		ValueBeDuplicate(angularidadeDto);
 		Angularidade body = bodySave(mapper.map(angularidadeDto,Angularidade.class));
 		return ResponseEntity
 				  .status(HttpStatus.OK)
@@ -34,14 +36,8 @@ public class AngularidadeService {
 	private void ValueBeDuplicate(AngularidadeDTO angularidadeDto) {
  		Angularidade info = mapper.map(angularidadeDto, Angularidade.class);
  		Angularidade busca = angulaRepository.findByPerielio(info.getPerielio());
- 		 if(busca != null && busca.getId() != info.getId()) {
- 			 
- 			 /*
- 			  * Criar classe de exception para tratar 
- 			  * erro de message de erro
- 			  * 
- 			  * */
- 			 //throw new MessageErrorReturnException("Informação sobre " +busca+ "já esta cadastrada na base de dados");
+ 		 if(busca != null && busca.getPerielio() != info.getPerielio()) {
+ 			 throw new ReturnErroMessageCostomization("Informação metrica "+info.getPerielio()+" já esta cadastrada");
  		 }
   	}
 	
