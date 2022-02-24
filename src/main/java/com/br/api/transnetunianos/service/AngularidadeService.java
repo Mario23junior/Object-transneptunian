@@ -20,7 +20,6 @@ public class AngularidadeService {
 	}
 	
 	public ResponseEntity<AngularidadeDTO> saveBodyAngularidade(AngularidadeDTO angularidadeDto) {
-		ValueBeDuplicate(angularidadeDto);
 		Angularidade body = bodySave(mapper.map(angularidadeDto,Angularidade.class));
 		return ResponseEntity
 				  .status(HttpStatus.OK)
@@ -35,6 +34,12 @@ public class AngularidadeService {
  		Angularidade info = mapper.map(angularidadeDto, Angularidade.class);
  		Angularidade busca = angulaRepository.findByPerielio(info.getPerielio());
  		 if(busca != null && busca.getId() != info.getId()) {
+ 			 
+ 			 /*
+ 			  * Criar classe de exception para tratar 
+ 			  * erro de message de erro
+ 			  * 
+ 			  * */
  			 //throw new MessageErrorReturnException("Informação sobre " +busca+ "já esta cadastrada na base de dados");
  		 }
   	}
