@@ -15,11 +15,12 @@ public class AngularidadeService {
 	private AgularidadeRepository angulaRepository;
 	private ModelMapper mapper;
 
-	public AngularidadeService(AgularidadeRepository angulaRepository) {
+	public AngularidadeService(AgularidadeRepository angulaRepository, ModelMapper mapper){
  		this.angulaRepository = angulaRepository;
+ 		this.mapper = mapper;
 	}
 	
-	public ResponseEntity<AngularidadeDTO> saveBodyAngularidade(AngularidadeDTO angularidadeDto) {
+	public ResponseEntity<AngularidadeDTO> saveBody(AngularidadeDTO angularidadeDto) {
 		Angularidade body = bodySave(mapper.map(angularidadeDto,Angularidade.class));
 		return ResponseEntity
 				  .status(HttpStatus.OK)
