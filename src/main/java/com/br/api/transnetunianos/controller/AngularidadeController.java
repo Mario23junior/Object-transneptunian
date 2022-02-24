@@ -1,0 +1,26 @@
+package com.br.api.transnetunianos.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.br.api.transnetunianos.ModelDTO.AngularidadeDTO;
+import com.br.api.transnetunianos.service.AngularidadeService;
+
+@RestController
+@RequestMapping("/api/v1/angularidade/")
+public class AngularidadeController {
+   
+	private AngularidadeService service;
+	
+	public AngularidadeController(AngularidadeService service) {
+	    this.service = service;
+	}
+	
+	@PostMapping
+	public ResponseEntity<AngularidadeDTO> save(@RequestBody AngularidadeDTO angularidadeDto) {
+		return service.saveBody(angularidadeDto);
+	}
+}
