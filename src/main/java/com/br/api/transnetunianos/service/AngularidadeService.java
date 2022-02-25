@@ -1,5 +1,7 @@
 package com.br.api.transnetunianos.service;
 
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,6 +42,15 @@ public class AngularidadeService {
  			 throw new ReturnErroMessageCostomization("Informação metrica "+info.getPerielio()+" já esta cadastrada");
  		 }
   	}
+	
+	public ResponseEntity<AngularidadeDTO> listId(Long id) {
+		Optional<Angularidade> list = angulaRepository.findById(id);
+		if(list.isPresent()) {
+			return ResponseEntity.ok(mapper.map(list.get(), AngularidadeDTO.class));
+		}else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 	
 	
 }
