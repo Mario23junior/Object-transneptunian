@@ -6,4 +6,6 @@ import com.br.api.transnetunianos.model.CendenciaInformat;
 
 public interface CendenciaInforRepository extends JpaRepository<CendenciaInformat, Long>{
 
+	CendenciaInformat findByMagnitudeAbsoluta(Double magnitudeAbsoluta);
+
 }
