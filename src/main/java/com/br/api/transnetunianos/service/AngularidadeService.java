@@ -43,6 +43,7 @@ public class AngularidadeService {
  		 }
   	}
 	
+	
 	public ResponseEntity<AngularidadeDTO> listId(Long id) {
 		Optional<Angularidade> list = angulaRepository.findById(id);
 		if(list.isPresent()) {
@@ -52,5 +53,32 @@ public class AngularidadeService {
 		}
 	}
 	
+	
+	public ResponseEntity<AngularidadeDTO> updateIdInfo(Long id,AngularidadeDTO angularidadeDto) {
+		ValueBeDuplicate(angularidadeDto);
+		Optional<Angularidade> updateData = angulaRepository.findById(id);
+ 		if(updateData.isPresent()) {
+ 			Angularidade dataGali = updateData.get();
+			dataGali.setPerielio (angularidadeDto.getPerielio());
+			dataGali.setAfelio(angularidadeDto.getAfelio());
+			dataGali.setAfelio(angularidadeDto.getAfelio());
+			angulaRepository.save(dataGali);
+			return ResponseEntity.ok(mapper.map(dataGali, AngularidadeDTO.class));
+			
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	
+	public ResponseEntity<AngularidadeDTO> delete(Long id) {
+		Optional<Angularidade> findId = angulaRepository.findById(id);
+		if(findId.isPresent()) {
+			angulaRepository.delete(findId.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+	}
 	
 }
