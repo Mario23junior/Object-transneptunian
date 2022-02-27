@@ -53,30 +53,31 @@ public class DesignacaoService {
 					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 				}
 			}
-//			
-//		
-//			public ResponseEntity<CendenciaInformatDTO> updateIdInfo(Long id,CendenciaInformatDTO cendenciaInformatDto) {
-//	 			Optional<CendenciaInformat> updateData = cendriRepository.findById(id);
-//		 		if(updateData.isPresent()) {
-//		 			CendenciaInformat dataGali = updateData.get();
-//					dataGali.setInclinacaoOrbitalGraus(cendenciaInformatDto.getInclinacaoOrbitalGraus());
-//					dataGali.setMagnitudeAbsoluta(cendenciaInformatDto.getMagnitudeAbsoluta());
-//	 				cendriRepository.save(dataGali);
-//					return ResponseEntity.ok(mapper.map(dataGali, CendenciaInformatDTO.class));
-//					
-//				} else {
-//					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//				}
-//			}
-//			
-//			
-//			public ResponseEntity<CendenciaInformatDTO> delete(Long id) {
-//				Optional<CendenciaInformat> findId = cendriRepository.findById(id);
-//				if(findId.isPresent()) {
-//					cendriRepository.delete(findId.get());
-//				return new ResponseEntity<>(HttpStatus.OK);
-//				} else {
-//					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//				}
-//			}
+			
+		
+			public ResponseEntity<DesignacaoDTO> updateIdInfo(Long id, DesignacaoDTO designacaoDto) {
+	 			Optional<Designacao> updateData = repository.findById(id);
+		 		if(updateData.isPresent()) {
+		 			Designacao dataGali = updateData.get();
+					dataGali.setData(designacaoDto.getData());
+					dataGali.setLocaliazcao(designacaoDto.getLocaliazcao());
+					dataGali.setRessonanciaOrbitalNetuno(designacaoDto.getRessonanciaOrbitalNetuno());
+ 					repository.save(dataGali);
+					return ResponseEntity.ok(mapper.map(dataGali, DesignacaoDTO.class));
+					
+				} else {
+					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				}
+			}
+			
+			
+			public ResponseEntity<DesignacaoDTO> delete(Long id) {
+				Optional<Designacao> findId = repository.findById(id);
+				if(findId.isPresent()) {
+					repository.delete(findId.get());
+				return new ResponseEntity<>(HttpStatus.OK);
+				} else {
+					return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+				}
+			}
 }
