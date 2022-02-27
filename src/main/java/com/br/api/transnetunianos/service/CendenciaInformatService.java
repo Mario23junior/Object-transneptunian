@@ -52,35 +52,30 @@ public class CendenciaInformatService {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 		}
-//		
-//		
-//		public ResponseEntity<AngularidadeDTO> updateIdInfo(Long id,AngularidadeDTO angularidadeDto) {
-//			ValueBeDuplicate(angularidadeDto);
-//			Optional<Angularidade> updateData = angulaRepository.findById(id);
-//	 		if(updateData.isPresent()) {
-//	 			Angularidade dataGali = updateData.get();
-//				dataGali.setPerielio (angularidadeDto.getPerielio());
-//				dataGali.setAfelio(angularidadeDto.getAfelio());
-//				dataGali.setAfelio(angularidadeDto.getAfelio());
-//				angulaRepository.save(dataGali);
-//				return ResponseEntity.ok(mapper.map(dataGali, AngularidadeDTO.class));
-//				
-//			} else {
-//				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//			}
-//		}
-//		
-//		
-//		public ResponseEntity<AngularidadeDTO> delete(Long id) {
-//			Optional<Angularidade> findId = angulaRepository.findById(id);
-//			if(findId.isPresent()) {
-//				angulaRepository.delete(findId.get());
-//				return new ResponseEntity<>(HttpStatus.OK);
-//			} else {
-//				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//			}
-//		}
 		
-	//}
-
+	
+		public ResponseEntity<CendenciaInformatDTO> updateIdInfo(Long id,CendenciaInformatDTO cendenciaInformatDto) {
+ 			Optional<CendenciaInformat> updateData = cendriRepository.findById(id);
+	 		if(updateData.isPresent()) {
+	 			CendenciaInformat dataGali = updateData.get();
+				dataGali.setInclinacaoOrbitalGraus(cendenciaInformatDto.getInclinacaoOrbitalGraus());
+				dataGali.setMagnitudeAbsoluta(cendenciaInformatDto.getMagnitudeAbsoluta());
+ 				cendriRepository.save(dataGali);
+				return ResponseEntity.ok(mapper.map(dataGali, CendenciaInformatDTO.class));
+				
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
+		
+		
+		public ResponseEntity<CendenciaInformatDTO> delete(Long id) {
+			Optional<CendenciaInformat> findId = cendriRepository.findById(id);
+			if(findId.isPresent()) {
+				cendriRepository.delete(findId.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+		}
 }
