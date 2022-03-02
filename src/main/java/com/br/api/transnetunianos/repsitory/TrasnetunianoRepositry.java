@@ -6,4 +6,6 @@ import com.br.api.transnetunianos.model.Transnetunianos;
 
 public interface TrasnetunianoRepositry extends JpaRepository<Transnetunianos, Long>{
 
+	Transnetunianos findByNome(Long id);
+
 }

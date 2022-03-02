@@ -5,7 +5,7 @@ public class TransnetunianosDTO {
 	private Long id;
 	private Integer numero;
 	private String nome;
-	private Double designacaoProvi;
+	private String designacaoProvi;
 
 	public TransnetunianosDTO() {
  	}
@@ -34,11 +34,11 @@ public class TransnetunianosDTO {
 		this.nome = nome;
 	}
 
-	public Double getDesignacaoProvi() {
+	public String getDesignacaoProvi() {
 		return designacaoProvi;
 	}
 
-	public void setDesignacaoProvi(Double designacaoProvi) {
+	public void setDesignacaoProvi(String designacaoProvi) {
 		this.designacaoProvi = designacaoProvi;
 	}
 }
