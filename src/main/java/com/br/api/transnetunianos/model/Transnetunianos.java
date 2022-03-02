@@ -13,7 +13,7 @@ public class Transnetunianos {
 	private Long id;
 	private Integer numero;
 	private String nome;
-	private Double designacaoProvi;
+	private String designacaoProvi;
 	
 	public Transnetunianos() {
 	}
@@ -36,10 +36,10 @@ public class Transnetunianos {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getDesignacaoProvi() {
+	public String getDesignacaoProvi() {
 		return designacaoProvi;
 	}
-	public void setDesignacaoProvi(Double designacaoProvi) {
+	public void setDesignacaoProvi(String designacaoProvi) {
 		this.designacaoProvi = designacaoProvi;
 	}
 	
