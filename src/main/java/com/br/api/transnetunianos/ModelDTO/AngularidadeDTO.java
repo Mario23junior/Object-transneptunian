@@ -1,11 +1,16 @@
 package com.br.api.transnetunianos.ModelDTO;
 
+import javax.persistence.ManyToOne;
+
 public class AngularidadeDTO {
    
 	private Long id;
 	private Double perielio;
 	private Double afelio;
 	private Double excentricidadeOrbital;
+	
+	@ManyToOne
+ 	private TransnetunianosDTO transnetunianosDto;
 	
 	public AngularidadeDTO() {
  	}
@@ -41,5 +46,15 @@ public class AngularidadeDTO {
 	public void setExcentricidadeOrbital(Double excentricidadeOrbital) {
 		this.excentricidadeOrbital = excentricidadeOrbital;
 	}
+
+	public TransnetunianosDTO getTransnetunianosDto() {
+		return transnetunianosDto;
+	}
+
+	public void setTransnetunianosDto(TransnetunianosDTO transnetunianosDto) {
+		this.transnetunianosDto = transnetunianosDto;
+	}
+	
+	
 	
 }

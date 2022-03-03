@@ -1,11 +1,16 @@
 package com.br.api.transnetunianos.ModelDTO;
 
+import javax.persistence.ManyToOne;
+
 public class DesignacaoDTO {
    
 	private Long id;
 	private String data;
 	private String localiazcao;
 	private String ressonanciaOrbitalNetuno;
+	
+	@ManyToOne
+ 	private TransnetunianosDTO transnetunianosDto;
 	
 	public DesignacaoDTO() {
  	}
@@ -41,4 +46,16 @@ public class DesignacaoDTO {
 	public void setRessonanciaOrbitalNetuno(String ressonanciaOrbitalNetuno) {
 		this.ressonanciaOrbitalNetuno = ressonanciaOrbitalNetuno;
 	}
+
+	public TransnetunianosDTO getTransnetunianosDto() {
+		return transnetunianosDto;
+	}
+
+	public void setTransnetunianosDto(TransnetunianosDTO transnetunianosDto) {
+		this.transnetunianosDto = transnetunianosDto;
+	}
+	
+	
+	
+	
 }

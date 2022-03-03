@@ -1,10 +1,15 @@
 package com.br.api.transnetunianos.ModelDTO;
 
+import javax.persistence.ManyToOne;
+
 public class CendenciaInformatDTO {
   
 	private Long id;
 	private Double inclinacaoOrbitalGraus;
 	private Double magnitudeAbsoluta;
+	
+	@ManyToOne
+ 	private TransnetunianosDTO transnetunianosDto;
 	
 	public CendenciaInformatDTO() {
  	}
@@ -32,4 +37,14 @@ public class CendenciaInformatDTO {
 	public void setMagnitudeAbsoluta(Double magnitudeAbsoluta) {
 		this.magnitudeAbsoluta = magnitudeAbsoluta;
 	}
+
+	public TransnetunianosDTO getTransnetunianosDto() {
+		return transnetunianosDto;
+	}
+
+	public void setTransnetunianosDto(TransnetunianosDTO transnetunianosDto) {
+		this.transnetunianosDto = transnetunianosDto;
+	}
+	
+	
 }
