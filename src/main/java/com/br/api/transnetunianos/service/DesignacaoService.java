@@ -24,9 +24,9 @@ public class DesignacaoService {
 		this.mapper = mapper;
 	}
 
-			public ResponseEntity<DesignacaoDTO> saveBody(DesignacaoDTO DesignacaoDto) {
-				ValueBeDuplicate(DesignacaoDto);
-				Designacao body = bodySave(mapper.map(DesignacaoDto,Designacao.class));
+			public ResponseEntity<DesignacaoDTO> saveBody(Designacao dsesignacao) {
+				ValueBeDuplicate(dsesignacao);
+				Designacao body = bodySave(mapper.map(dsesignacao,Designacao.class));
 				return ResponseEntity
 						  .status(HttpStatus.OK)
 						  .body(mapper.map(body, DesignacaoDTO.class));
@@ -36,8 +36,8 @@ public class DesignacaoService {
 		 		return repository.save(designacao);
 			}
 
-			private void ValueBeDuplicate(DesignacaoDTO DesignacaoDto) {
-		 		CendenciaInformat info = mapper.map(DesignacaoDto, CendenciaInformat.class);
+			private void ValueBeDuplicate(Designacao dsesignacao) {
+		 		CendenciaInformat info = mapper.map(dsesignacao, CendenciaInformat.class);
 		 		CendenciaInformat busca = repository.findByRessonanciaOrbitalNetuno(info.getMagnitudeAbsoluta());
 		 		 if(busca != null && busca.getMagnitudeAbsoluta() != info.getMagnitudeAbsoluta()) {
 		 			 throw new ReturnErroMessageCostomization("Ressonancia orbital de neturno "+info.getMagnitudeAbsoluta()+" já esta cadastrada");

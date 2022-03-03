@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.br.api.transnetunianos.ModelDTO.DesignacaoDTO;
+import com.br.api.transnetunianos.model.Designacao;
 import com.br.api.transnetunianos.service.DesignacaoService;
 
 @RestController
@@ -24,8 +25,8 @@ public class DesignacaoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<DesignacaoDTO> save(@RequestBody DesignacaoDTO DesignacaoDTO) {
-		return service.saveBody(DesignacaoDTO);
+	public ResponseEntity<DesignacaoDTO> save(@RequestBody Designacao dsesignacao) {
+		return service.saveBody(dsesignacao);
 	}
 	
 	@GetMapping("{id}")
