@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class CendenciaInformat {
@@ -13,6 +14,9 @@ public class CendenciaInformat {
 	private Long id;
 	private Double inclinacaoOrbitalGraus;
 	private Double magnitudeAbsoluta;
+	
+	@ManyToOne
+	private Transnetunianos transnetunianos;
 	
 	public CendenciaInformat() {
 		// TODO Auto-generated constructor stub
@@ -41,6 +45,16 @@ public class CendenciaInformat {
 	public void setMagnitudeAbsoluta(Double magnitudeAbsoluta) {
 		this.magnitudeAbsoluta = magnitudeAbsoluta;
 	}
+
+	public Transnetunianos getTransnetunianos() {
+		return transnetunianos;
+	}
+
+	public void setTransnetunianos(Transnetunianos transnetunianos) {
+		this.transnetunianos = transnetunianos;
+	}
+	
+	
 	
 	
 }

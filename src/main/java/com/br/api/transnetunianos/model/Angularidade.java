@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Angularidade {
@@ -14,6 +15,9 @@ public class Angularidade {
 	private Double perielio;
 	private Double afelio;
 	private Double excentricidadeOrbital;
+	
+	@ManyToOne
+	private Transnetunianos transnetunianos;
 	
 	public Angularidade() {
 		// TODO Auto-generated constructor stub
@@ -49,6 +53,14 @@ public class Angularidade {
 
 	public void setExcentricidadeOrbital(Double excentricidadeOrbital) {
 		this.excentricidadeOrbital = excentricidadeOrbital;
+	}
+
+	public Transnetunianos getTransnetunianos() {
+		return transnetunianos;
+	}
+
+	public void setTransnetunianos(Transnetunianos transnetunianos) {
+		this.transnetunianos = transnetunianos;
 	}
 	
 	

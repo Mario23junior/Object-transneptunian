@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Designacao {
@@ -14,6 +15,9 @@ public class Designacao {
 	private String data;
 	private String localiazcao;
 	private String ressonanciaOrbitalNetuno;
+	
+	@ManyToOne
+	private Transnetunianos transnetunianos;
 	
 	public Designacao() {
 		// TODO Auto-generated constructor stub
@@ -50,6 +54,16 @@ public class Designacao {
 	public void setRessonanciaOrbitalNetuno(String ressonanciaOrbitalNetuno) {
 		this.ressonanciaOrbitalNetuno = ressonanciaOrbitalNetuno;
 	}
+
+	public Transnetunianos getTransnetunianos() {
+		return transnetunianos;
+	}
+
+	public void setTransnetunianos(Transnetunianos transnetunianos) {
+		this.transnetunianos = transnetunianos;
+	}
+	
+	
 	
 	
 }
